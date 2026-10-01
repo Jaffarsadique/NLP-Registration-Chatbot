@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Internship Registration Assistant</title>
+<style>
+:root{--bg:#f5f7fa;--panel:#fff;--ink:#1c2430;--muted:#5d6b7c;--bot:#e8eef6;--me:#1f5eff;--line:#d5dce6}
+@media (prefers-color-scheme:dark){:root{--bg:#10151c;--panel:#18202a;--ink:#e6ebf2;--muted:#93a1b3;--bot:#243142;--me:#3d74ff;--line:#2c3848}}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,sans-serif;display:flex;justify-content:center}
+main{width:100%;max-width:640px;height:100%;display:flex;flex-direction:column;background:var(--panel);border-inline:1px solid var(--line)}
+header{padding:16px 20px;border-bottom:1px solid var(--line)}
+h1{font-size:1.1rem;margin:0}
+header p{margin:2px 0 0;color:var(--muted);font-size:.875rem}
+#log{flex:1;overflow-y:auto;padding:16px 20px;display:flex;flex-direction:column;gap:10px}
+.m{max-width:85%;padding:9px 13px;border-radius:14px;white-space:pre-wrap;overflow-wrap:anywhere}
+.bot{background:var(--bot);align-self:flex-start}
+.me{background:var(--me);color:#fff;align-self:flex-end}
+form{display:flex;gap:8px;padding:12px 20px;border-top:1px solid var(--line)}
+input{flex:1;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit}
+button{padding:10px 18px;border:0;border-radius:8px;background:var(--me);color:#fff;font:inherit;cursor:pointer}
+input:focus-visible,button:focus-visible{outline:2px solid var(--me);outline-offset:2px}
+</style>
+</head>
+<body>
+<main>
+  <header><h1>Internship Registration Assistant</h1><p>Free Online AI &amp; Data Science Internship</p></header>
+  <div id="log" aria-live="polite"></div>
+  <form id="f"><input id="t" autocomplete="off" placeholder="Type 'register' to begin" aria-label="Message"><button>Send</button></form>
+</main>
+<script>
+const log=document.getElementById('log'),t=document.getElementById('t');
+let sid=null;
+function add(text,who){const d=document.createElement('div');d.className='m '+who;d.textContent=text;log.appendChild(d);log.scrollTop=log.scrollHeight}
+add("Hello! I can register you for the internship or answer your questions. Type 'register' to begin.",'bot');
+document.getElementById('f').addEventListener('submit',async e=>{
+  e.preventDefault();const msg=t.value.trim();if(!msg)return;
+  add(msg,'me');t.value='';
+  try{
+    const r=await fetch('/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:msg,session_id:sid})});
+    const j=await r.json();sid=j.session_id;add(j.reply,'bot');
+  }catch(err){add('Could not reach the server. Check that app.py is running.','bot')}
+});
+</script>
+</body>
+</html>

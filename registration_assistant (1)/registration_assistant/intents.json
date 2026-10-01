@@ -1,0 +1,63 @@
+{
+  "intents": {
+    "greeting": {
+      "patterns": ["hi", "hello", "hey", "good morning", "good evening", "hi there", "hello assistant", "hey bot", "greetings"],
+      "responses": [
+        "Hello! Welcome to the Free Online AI & Data Science Internship registration. Say 'register' to begin, or ask me a question.",
+        "Hi there! I'm the AI Registration Assistant. I can register you for the internship or answer questions about it."
+      ]
+    },
+    "register": {
+      "patterns": ["register", "i want to register", "apply", "i want to apply", "sign up", "join the internship", "enroll me", "start registration", "i would like to join", "register me for the internship", "how do i apply"],
+      "responses": ["Great, let's get you registered."]
+    },
+    "help": {
+      "patterns": ["help", "i need help", "support", "assist me", "guide me", "what can you do", "how does this work", "can you help me"],
+      "responses": ["I can register you for the internship (say 'register'), and answer questions about duration, cost, required skills, certificates and work mode. Say 'cancel' at any time to start over."]
+    },
+    "thanks": {
+      "patterns": ["thanks", "thank you", "thank you so much", "i appreciate it", "thanks a lot", "much appreciated"],
+      "responses": ["You're welcome! Anything else I can help with?"]
+    },
+    "goodbye": {
+      "patterns": ["bye", "goodbye", "see you", "see you later", "quit", "exit", "talk to you later"],
+      "responses": ["Goodbye! Good luck with your internship."]
+    },
+    "affirm": {
+      "patterns": ["yes", "yeah", "yep", "sure", "correct", "that is correct", "confirm", "ok", "okay", "yes please"],
+      "responses": ["Great."]
+    },
+    "deny": {
+      "patterns": ["no", "nope", "not really", "that is wrong", "incorrect", "change it", "no thanks"],
+      "responses": ["Okay."]
+    },
+    "cancel": {
+      "patterns": ["cancel", "cancel registration", "restart", "start over", "reset", "begin again", "forget it"],
+      "responses": ["Cancelled."]
+    },
+    "status": {
+      "patterns": ["check my status", "application status", "registration status", "did my registration go through", "what is my status", "status of my application", "is my registration done"],
+      "responses": ["Status check."]
+    },
+    "faq_duration": {
+      "patterns": ["how long is the internship", "duration of the internship", "how many weeks", "how many days is the task", "what is the timeline", "internship duration", "when does it start"],
+      "responses": ["Each task is designed as a 7-day project (about 2 to 4 hours per day). For the full internship schedule, check www.dataalcott.com."]
+    },
+    "faq_cost": {
+      "patterns": ["how much does it cost", "is it free", "what is the fee", "any registration fee", "price of the internship", "do i have to pay", "is there a charge"],
+      "responses": ["This is a free online internship, so there is no registration fee."]
+    },
+    "faq_skills": {
+      "patterns": ["what skills are required", "which skills do i need", "prerequisites", "do i need to know python", "required skills", "what should i know", "eligibility criteria", "who can apply"],
+      "responses": ["Basic Python helps. During the tasks you'll work with NLP (NLTK or spaCy), scikit-learn and chatbot frameworks. For eligibility details, check www.dataalcott.com."]
+    },
+    "faq_certificate": {
+      "patterns": ["will i get a certificate", "is there a certificate", "internship certificate", "do you give certificates", "certificate details", "will i receive a certificate"],
+      "responses": ["Certificate details aren't covered in my task brief, so please confirm with Data Alcott Systems at www.dataalcott.com."]
+    },
+    "faq_mode": {
+      "patterns": ["is it online", "work from home", "is it remote", "where is the internship", "do i have to come to office", "location of internship", "mode of internship"],
+      "responses": ["The internship is fully online and remote (work from home)."]
+    }
+  }
+}
